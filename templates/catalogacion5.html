@@ -1,0 +1,279 @@
+{% extends 'base.html' %}
+
+{% block cuerpo %}
+
+      <!-- **********************************************************************************************************************************************************
+      MAIN CONTENT
+      *********************************************************************************************************************************************************** -->
+      <!--main content start-->
+      <section id="main-content">
+          <section class="wrapper">
+
+              <div class="row">
+                  <div class="col-lg-12">
+
+                      <div class="row ">
+                          <!-- /showback -->
+                          <div class="showback">
+                          <h3 class="text-center">Catalogacion</h3>
+                              <div class="text-center">
+                                    {% for i in caracteristica %}
+                                        Marca: {{ i.Marca }} <br>
+                                        Descripción: {{ i.DESCRIPTION }} <br>
+                                        Descripción Larga: {{ i.LONG_DESCRIPTION }} <br>
+                                        Número de Parte: {{ i.ATTRIBUTE4 }} <br>
+
+                                        Fecha1: {{ i.ATTRIBUTE13 }} <br>
+                                        Fecha2: {{ i.ATTRIBUTE14 }} <br>
+
+
+                                      {% endfor %}
+                              </div>
+
+                              <h3 class="text-center">Proceso de catalogación</h3>
+
+                          <div class="col-lg-2 ds">
+                          </div>
+
+                          <div class="col-lg-16 ds">
+
+                              <h2 class="text-center">CODIGO: </h2>
+                              <h1 class="text-center"> {{ dato }} {{ dato2 }} {{ dato3 }} {{ dato4 }} </h1>
+                              <h3 class="text-center"> {{mensaje}} </h3>
+                          </div>
+                              <div class="col-lg-2 text-center">
+                              <form method="POST" action="" class="newsletter">{% csrf_token %}
+                                  <button type="submit" name="lconfirmar" class="btn btn-primary">Finalizar</button>
+                              </form>
+                          </div>
+                              <div class="col-lg-2 text-center">
+                              <form method="POST" action="" class="newsletter">{% csrf_token %}
+                                  <button type="submit" name="lrevision" class="btn btn-primary">Revision</button>
+                              </form>
+                          </div>
+
+                        <div class="col-lg-2 ds">
+                        </div>
+                              </div>
+                        </div>
+                        {% if val %}
+                        <div class="row">
+
+                          <div class="col-lg-6">
+                              <table class="table table-striped">
+                                <thead>
+                                  <tr>
+                                    <th>Datos</th>
+                                    <th>Resultado</th>
+
+                                  </tr>
+                                  </thead>
+                                <tbody>
+
+
+                        {% for i in valores%}
+
+
+
+
+                                  <tr>
+                                    <td>Bodega</td>
+                                    <td>{{ i.ORGANIZATION_CODE }}</td>
+
+                                  </tr>
+                                  <tr>
+                                    <td>Código Único</td>
+                                    <td>{{ i.SEGMENT1 }}</td>
+
+                                  </tr>
+                                  <tr>
+                                    <td>Codigo Anterior</td>
+                                    <td>{{ i.ANTERIOR }}</td>
+                                  </tr>
+                                  <tr>
+                                    <td>Marca</td>
+                                    <td>{{ i.ATTRIBUTE3 }}</td>
+                                  </tr>
+                                  <tr>
+                                    <td>Número de Parte</td>
+                                    <td>{{ i.ATTRIBUTE4 }}</td>
+                                  </tr>
+                                  <tr>
+                                    <td>Cantidad</td>
+                                    <td>{{ i.CANTIDAD }}</td>
+                                  </tr>
+                                  <tr>
+                                    <td>Unidad</td>
+                                    <td>{{ i.PRIMARY_UOM_CODE }}</td>
+                                  </tr>
+                                  <tr>
+                                    <td>Localizador</td>
+                                    <td>{{ i.LOCALIZADOR }}</td>
+                                  </tr>
+                                  {% endfor %}
+                        {% for i in valores2%}
+
+
+                                  <tr>
+                                    <td>Adquisición</td>
+                                    <td>{{ i.ATTRIBUTE13 }}</td>
+
+                                  </tr>
+                                  <tr>
+                                    <td>Caducidad</td>
+                                    <td>{{ i.ATTRIBUTE14 }}</td>
+
+                                  </tr>
+
+                                  <tr>
+                                    <td>Descripción</td>
+                                    <td>{{ i.DESCRIPTION }}</td>
+                                  </tr>
+                                  <tr>
+                                    <td>Descrip L.</td>
+                                    <td>{{ i.LONG_DESCRIPTION }}</td>
+                                  </tr>
+
+                        {% endfor %}
+
+                      </tbody>
+                              </table>
+                              </div>
+                            <form method="POST" action="" class="newsletter">{% csrf_token %}
+                            <div class="col-lg-6">
+                                {{ form }}
+
+
+                                <div class="row mt">
+                          <div class="col-lg-4 text-center">
+                              <button type="submit" name="lcantidad" class="btn btn-primary text-center">Actualizar cantidad</button>
+
+
+                          </div>
+                          <div class="col-lg-4 text-center">
+                              <button type="submit" name="ldescripcion" class="btn btn-primary">Actualizar Descripción</button>
+                          </div>
+                          <div class="col-lg-4 text-center">
+                              <button type="submit" name="lrevisar" class="btn btn-primary">Revisar</button>
+                          </div>
+                      </div>
+                            </div>
+                            </form>
+
+
+
+
+
+
+
+
+
+
+					<div class="row">
+						<!-- TWITTER PANEL -->
+
+
+
+
+
+
+
+					</div><!-- /row -->
+
+
+
+                  </div><!-- /col-lg-9 END SECTION MIDDLE -->
+
+
+
+      <!-- **********************************************************************************************************************************************************
+      RIGHT SIDEBAR CONTENT
+      *********************************************************************************************************************************************************** -->
+
+                  <!--<div class="col-lg-3 ds">-->
+                    <!--&lt;!&ndash;COMPLETED ACTIONS DONUTS CHART&ndash;&gt;-->
+						<!--<h3>NOTIFICATIONS</h3>-->
+                                        <!---->
+                      <!--&lt;!&ndash; First Action &ndash;&gt;-->
+                      <!--<div class="desc">-->
+                      	<!--<div class="thumb">-->
+                      		<!--<span class="badge bg-theme"><i class="fa fa-clock-o"></i></span>-->
+                      	<!--</div>-->
+                      	<!--<div class="details">-->
+                      		<!--<p><muted>2 Minutes Ago</muted><br/>-->
+                      		   <!--<a href="#">James Brown</a> subscribed to your newsletter.<br/>-->
+                      		<!--</p>-->
+                      	<!--</div>-->
+                      <!--</div>-->
+                      <!--&lt;!&ndash; Second Action &ndash;&gt;-->
+                      <!--<div class="desc">-->
+                      	<!--<div class="thumb">-->
+                      		<!--<span class="badge bg-theme"><i class="fa fa-clock-o"></i></span>-->
+                      	<!--</div>-->
+                      	<!--<div class="details">-->
+                      		<!--<p><muted>3 Hours Ago</muted><br/>-->
+                      		   <!--<a href="#">Diana Kennedy</a> purchased a year subscription.<br/>-->
+                      		<!--</p>-->
+                      	<!--</div>-->
+                      <!--</div>-->
+                      <!--&lt;!&ndash; Third Action &ndash;&gt;-->
+                      <!--<div class="desc">-->
+                      	<!--<div class="thumb">-->
+                      		<!--<span class="badge bg-theme"><i class="fa fa-clock-o"></i></span>-->
+                      	<!--</div>-->
+                      	<!--<div class="details">-->
+                      		<!--<p><muted>7 Hours Ago</muted><br/>-->
+                      		   <!--<a href="#">Brandon Page</a> purchased a year subscription.<br/>-->
+                      		<!--</p>-->
+                      	<!--</div>-->
+                      <!--</div>-->
+                      <!--&lt;!&ndash; Fourth Action &ndash;&gt;-->
+                      <!--<div class="desc">-->
+                      	<!--<div class="thumb">-->
+                      		<!--<span class="badge bg-theme"><i class="fa fa-clock-o"></i></span>-->
+                      	<!--</div>-->
+                      	<!--<div class="details">-->
+                      		<!--<p><muted>11 Hours Ago</muted><br/>-->
+                      		   <!--<a href="#">Mark Twain</a> commented your post.<br/>-->
+                      		<!--</p>-->
+                      	<!--</div>-->
+                      <!--</div>-->
+                      <!--&lt;!&ndash; Fifth Action &ndash;&gt;-->
+                      <!--<div class="desc">-->
+                      	<!--<div class="thumb">-->
+                      		<!--<span class="badge bg-theme"><i class="fa fa-clock-o"></i></span>-->
+                      	<!--</div>-->
+                      	<!--<div class="details">-->
+                      		<!--<p><muted>18 Hours Ago</muted><br/>-->
+                      		   <!--<a href="#">Daniel Pratt</a> purchased a wallet in your store.<br/>-->
+                      		<!--</p>-->
+                      	<!--</div>-->
+                      <!--</div>-->
+
+                       <!---->
+                      <!---->
+                      <!---->
+                      <!---->
+                      <!---->
+                      <!---->
+                        <!--&lt;!&ndash; CALENDAR&ndash;&gt;-->
+                        <!--<div id="calendar" class="mb">-->
+                            <!--<div class="panel green-panel no-margin">-->
+                                <!--<div class="panel-body">-->
+                                    <!--<div id="date-popover" class="popover top" style="cursor: pointer; disadding: block; margin-left: 33%; margin-top: -50px; width: 175px;">-->
+                                        <!--<div class="arrow"></div>-->
+                                        <!--<h3 class="popover-title" style="disadding: none;"></h3>-->
+                                        <!--<div id="date-popover-content" class="popover-content"></div>-->
+                                    <!--</div>-->
+                                    <!--<div id="my-calendar"></div>-->
+                                <!--</div>-->
+                            <!--</div>-->
+                        <!--</div>&lt;!&ndash; / calendar &ndash;&gt;-->
+                      <!---->
+                  <!--</div>&lt;!&ndash; /col-lg-3 &ndash;&gt;-->
+              </div><! --/row -->
+                  {% endif %}
+          </section>
+      </section>
+
+{% endblock %}

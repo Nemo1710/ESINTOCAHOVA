@@ -1,0 +1,135 @@
+{% extends 'base.html' %}
+
+
+
+
+{% block cuerpo %}
+
+      <!-- **********************************************************************************************************************************************************
+      MAIN CONTENT
+      *********************************************************************************************************************************************************** -->
+      <!--main content start-->
+      <section id="main-content">
+          <section class="wrapper site-min-height">
+
+              <div class="row mt ">
+                  <div class="col-lg-12">
+					  <h3><i class="fa fa-angle-right"></i> Resumen de bodega actual</h3>
+					  <div class="row">
+						<div class="col-lg-6 col-md-6 col-sm-6 mb">
+							<div class="twitter-panel pn">
+								<i class="fa fa-archive fa-4x"></i>
+								<p>Actualmente estas trabajando en bodega: {{valores.bodega.Nombre}}</p>
+								<p class="user">{{valores.bodega.Localizacion}}</p>
+								<p class="user">{{valores.bodega.Telefono}}</p>
+							</div>
+						</div><!-- /col-md-4 -->
+						<div class="col-md-6 col-sm-6 mb">
+                      		<div class="darkblue-panel pn">
+                      			<div class="darkblue-header">
+
+						  			<h5>En esta bodega hay:</h5>
+                      			</div>
+                      			<h1 class="mt"><i class="fa fa-file-archive-o fa-3x"></i></h1>
+
+								<footer>
+									<div class="centered">
+										<h5><i class="fa fa-trophy"></i> {{valores.bodega.Articulos}} Articulos</h5>
+										<h5><i class="fa fa-trophy"></i> {{valores.bodega.Items}} Items</h5>
+									</div>
+								</footer>
+                      		</div><! -- /darkblue panel -->
+                      	</div><!-- /col-md-4 -->
+
+
+						<div class="col-md-4 col-sm-4 mb">
+					  		<div class="green-panel pn">
+					  			<div class="green-header">
+						  			<h5>Toma Física</h5>
+					  			</div>
+								<canvas id="serverstatus03" height="120" width="120"></canvas>
+								<script>
+									var doughnutData = [
+											{
+												value: 60,
+												color:"#2b2b2b"
+											},
+											{
+												value : 40,
+												color : "#fffffd"
+											}
+										];
+										var myDoughnut = new Chart(document.getElementById("serverstatus03").getContext("2d")).Doughnut(doughnutData);
+								</script>
+								<h3>60% Completados</h3>
+					  		</div>
+					  	</div><! --/col-md-4 -->
+						<div class="col-md-4 col-sm-4 mb">
+					  		<div class="green-panel pn">
+					  			<div class="green-header">
+						  			<h5>Catalogados</h5>
+					  			</div>
+								<canvas id="serverstatus05" height="120" width="120"></canvas>
+								<script>
+									var doughnutData = [
+											{
+												value: 60,
+												color:"#2b2b2b"
+											},
+											{
+												value : 40,
+												color : "#fffffd"
+											}
+										];
+										var myDoughnut = new Chart(document.getElementById("serverstatus05").getContext("2d")).Doughnut(doughnutData);
+								</script>
+								<h3>60% Completados</h3>
+					  		</div>
+					  	</div><! --/col-md-4 -->
+						<div class="col-md-4 col-sm-4 mb">
+					  		<div class="green-panel pn">
+					  			<div class="green-header">
+						  			<h5>Descripción corregida</h5>
+					  			</div>
+								<canvas id="serverstatus04" height="120" width="120"></canvas>
+								<script>
+									var doughnutData = [
+											{
+												value: 60,
+												color:"#2b2b2b"
+											},
+											{
+												value : 40,
+												color : "#fffffd"
+											}
+										];
+										var myDoughnut = new Chart(document.getElementById("serverstatus04").getContext("2d")).Doughnut(doughnutData);
+								</script>
+								<h3>60% Completados</h3>
+					  		</div>
+					  	</div><! --/col-md-4 -->
+
+
+
+
+
+
+
+                  	
+                  	</div><!-- /row mt -->	
+                  
+
+					
+                  </div><!-- /col-lg-9 END SECTION MIDDLE -->
+                  
+                  
+      <!-- **********************************************************************************************************************************************************
+      RIGHT SIDEBAR CONTENT
+      *********************************************************************************************************************************************************** -->                  
+                  
+
+              </div><! --/row -->
+          </section>
+      </section>
+
+{% endblock %}
